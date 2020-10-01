@@ -19,4 +19,4 @@ exports.getReserves = async function (pairAddress) {
 	}
 };
 
-this.getReserves('0x1f232d58e4ff6c04770cea98614f695d3eb4e41b');
+this.getReserves('0x77bc559a5a52b2020b63a149d81ffcae7b6c1ec9');
