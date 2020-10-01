@@ -27,7 +27,7 @@ module.exports = {
 				);
 			},
 			network_id: 3,
-			gas: 8000000
+			gas: 6721975
 		}
 	},
 	rpc: {

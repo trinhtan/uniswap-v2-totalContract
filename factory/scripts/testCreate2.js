@@ -5,7 +5,7 @@ const web3 = new Web3();
 const UniswapV2Pair = require('../build/contracts/UniswapV2Pair.json');
 
 // 0xff ++ deployingAddress is fixed:
-var deployingAddress = '0xff88038B1a5844F4D86038e8fA2573ED06BBb47a6b';
+var deployingAddress = '0xffC01a8C3EE884399D9266F3551bc1558A81a95D4e';
 
 // Hash of the bytecode is fixed. Calculated with eth.keccak256():
 var bytecodeHash = eth.keccak256(UniswapV2Pair.bytecode).toString('hex');
