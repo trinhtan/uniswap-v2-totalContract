@@ -21,26 +21,26 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"getExchange\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/trinh.van.tan/uniswap-v2-totalContract/periphery/contracts/interfaces/V1/IUniswapV1Factory.sol\":\"IUniswapV1Factory\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/trinh.van.tan/uniswap-v2-totalContract/periphery/contracts/interfaces/V1/IUniswapV1Factory.sol\":{\"keccak256\":\"0x2a554e26d874fa4b10736f2e2ac1ba6253cd1ad08a97bd941cb0a41015565589\",\"urls\":[\"bzz-raw://bbe29db0ebf08621cb4211219c02262be9c7510fe03bab94f849a38993f957d6\",\"dweb:/ipfs/QmTutAVpjg925m4JLqHTvukdTyoTr77FotAUAA2AzGug1f\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"getExchange\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/trinh.van.tan/uniswap/uniswap-v2-totalContract/periphery/contracts/interfaces/V1/IUniswapV1Factory.sol\":\"IUniswapV1Factory\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/trinh.van.tan/uniswap/uniswap-v2-totalContract/periphery/contracts/interfaces/V1/IUniswapV1Factory.sol\":{\"keccak256\":\"0x2a554e26d874fa4b10736f2e2ac1ba6253cd1ad08a97bd941cb0a41015565589\",\"urls\":[\"bzz-raw://bbe29db0ebf08621cb4211219c02262be9c7510fe03bab94f849a38993f957d6\",\"dweb:/ipfs/QmTutAVpjg925m4JLqHTvukdTyoTr77FotAUAA2AzGug1f\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity >=0.5.0;\n\ninterface IUniswapV1Factory {\n    function getExchange(address) external view returns (address);\n}\n",
-  "sourcePath": "/home/trinh.van.tan/uniswap-v2-totalContract/periphery/contracts/interfaces/V1/IUniswapV1Factory.sol",
+  "sourcePath": "/home/trinh.van.tan/uniswap/uniswap-v2-totalContract/periphery/contracts/interfaces/V1/IUniswapV1Factory.sol",
   "ast": {
-    "absolutePath": "/home/trinh.van.tan/uniswap-v2-totalContract/periphery/contracts/interfaces/V1/IUniswapV1Factory.sol",
+    "absolutePath": "/home/trinh.van.tan/uniswap/uniswap-v2-totalContract/periphery/contracts/interfaces/V1/IUniswapV1Factory.sol",
     "exportedSymbols": {
       "IUniswapV1Factory": [
-        5464
+        5473
       ]
     },
-    "id": 5465,
+    "id": 5474,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 5456,
+        "id": 5465,
         "literals": [
           "solidity",
           ">=",
@@ -57,9 +57,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 5464,
+        "id": 5473,
         "linearizedBaseContracts": [
-          5464
+          5473
         ],
         "name": "IUniswapV1Factory",
         "nodeType": "ContractDefinition",
@@ -68,7 +68,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "06f2bf62",
-            "id": 5463,
+            "id": 5472,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -76,17 +76,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 5459,
+              "id": 5468,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5458,
+                  "id": 5467,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 5463,
+                  "scope": 5472,
                   "src": "81:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -95,7 +95,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 5457,
+                    "id": 5466,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "81:7:13",
@@ -112,17 +112,17 @@
               "src": "80:9:13"
             },
             "returnParameters": {
-              "id": 5462,
+              "id": 5471,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5461,
+                  "id": 5470,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 5463,
+                  "scope": 5472,
                   "src": "113:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -131,7 +131,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 5460,
+                    "id": 5469,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "113:7:13",
@@ -147,31 +147,31 @@
               ],
               "src": "112:9:13"
             },
-            "scope": 5464,
+            "scope": 5473,
             "src": "60:62:13",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 5465,
+        "scope": 5474,
         "src": "26:98:13"
       }
     ],
     "src": "0:125:13"
   },
   "legacyAST": {
-    "absolutePath": "/home/trinh.van.tan/uniswap-v2-totalContract/periphery/contracts/interfaces/V1/IUniswapV1Factory.sol",
+    "absolutePath": "/home/trinh.van.tan/uniswap/uniswap-v2-totalContract/periphery/contracts/interfaces/V1/IUniswapV1Factory.sol",
     "exportedSymbols": {
       "IUniswapV1Factory": [
-        5464
+        5473
       ]
     },
-    "id": 5465,
+    "id": 5474,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 5456,
+        "id": 5465,
         "literals": [
           "solidity",
           ">=",
@@ -188,9 +188,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 5464,
+        "id": 5473,
         "linearizedBaseContracts": [
-          5464
+          5473
         ],
         "name": "IUniswapV1Factory",
         "nodeType": "ContractDefinition",
@@ -199,7 +199,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "06f2bf62",
-            "id": 5463,
+            "id": 5472,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -207,17 +207,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 5459,
+              "id": 5468,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5458,
+                  "id": 5467,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 5463,
+                  "scope": 5472,
                   "src": "81:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -226,7 +226,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 5457,
+                    "id": 5466,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "81:7:13",
@@ -243,17 +243,17 @@
               "src": "80:9:13"
             },
             "returnParameters": {
-              "id": 5462,
+              "id": 5471,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5461,
+                  "id": 5470,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 5463,
+                  "scope": 5472,
                   "src": "113:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -262,7 +262,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 5460,
+                    "id": 5469,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "113:7:13",
@@ -278,14 +278,14 @@
               ],
               "src": "112:9:13"
             },
-            "scope": 5464,
+            "scope": 5473,
             "src": "60:62:13",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 5465,
+        "scope": 5474,
         "src": "26:98:13"
       }
     ],
@@ -297,7 +297,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-01T03:02:12.222Z",
+  "updatedAt": "2020-10-27T02:06:49.697Z",
   "devdoc": {
     "methods": {}
   },

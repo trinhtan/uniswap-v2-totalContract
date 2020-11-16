@@ -13,7 +13,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
     using SafeMath for uint256;
 
     address public immutable override factory;
-    address public immutable override WETH;
+    address public immutable override  WETH;
 
     modifier ensure(uint256 deadline) {
         require(deadline >= block.timestamp, "UniswapV2Router: EXPIRED");
@@ -90,6 +90,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         external
         virtual
         override
+        ensure(deadline)
         returns (
             uint256 amountA,
             uint256 amountB,
@@ -122,6 +123,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         virtual
         override
         payable
+        ensure(deadline)
         returns (
             uint256 amountToken,
             uint256 amountETH,
@@ -145,200 +147,6 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         if (msg.value > amountETH)
             TransferHelper.safeTransferETH(msg.sender, msg.value - amountETH);
     }
-
-    // **** REMOVE LIQUIDITY ****
-    // function removeLiquidity(
-    //     address tokenA,
-    //     address tokenB,
-    //     uint256 liquidity,
-    //     uint256 amountAMin,
-    //     uint256 amountBMin,
-    //     address to,
-    //     uint256 deadline
-    // )
-    //     public
-    //     virtual
-    //     override
-    //     ensure(deadline)
-    //     returns (uint256 amountA, uint256 amountB)
-    // {
-    //     address pair = UniswapV2Library.pairFor(factory, tokenA, tokenB);
-    //     IUniswapV2Pair(pair).transferFrom(msg.sender, pair, liquidity); // send liquidity to pair
-    //     (uint256 amount0, uint256 amount1) = IUniswapV2Pair(pair).burn(to);
-    //     (address token0, ) = UniswapV2Library.sortTokens(tokenA, tokenB);
-    //     (amountA, amountB) = tokenA == token0
-    //         ? (amount0, amount1)
-    //         : (amount1, amount0);
-    //     require(
-    //         amountA >= amountAMin,
-    //         "UniswapV2Router: INSUFFICIENT_A_AMOUNT"
-    //     );
-    //     require(
-    //         amountB >= amountBMin,
-    //         "UniswapV2Router: INSUFFICIENT_B_AMOUNT"
-    //     );
-    // }
-
-    // function removeLiquidityETH(
-    //     address token,
-    //     uint256 liquidity,
-    //     uint256 amountTokenMin,
-    //     uint256 amountETHMin,
-    //     address to,
-    //     uint256 deadline
-    // )
-    //     public
-    //     virtual
-    //     override
-    //     ensure(deadline)
-    //     returns (uint256 amountToken, uint256 amountETH)
-    // {
-    //     (amountToken, amountETH) = removeLiquidity(
-    //         token,
-    //         WETH,
-    //         liquidity,
-    //         amountTokenMin,
-    //         amountETHMin,
-    //         address(this),
-    //         deadline
-    //     );
-    //     TransferHelper.safeTransfer(token, to, amountToken);
-    //     IWETH(WETH).withdraw(amountETH);
-    //     TransferHelper.safeTransferETH(to, amountETH);
-    // }
-
-    // function removeLiquidityWithPermit(
-    //     address tokenA,
-    //     address tokenB,
-    //     uint256 liquidity,
-    //     uint256 amountAMin,
-    //     uint256 amountBMin,
-    //     address to,
-    //     uint256 deadline,
-    //     bool approveMax,
-    //     uint8 v,
-    //     bytes32 r,
-    //     bytes32 s
-    // ) external virtual override returns (uint256 amountA, uint256 amountB) {
-    //     address pair = UniswapV2Library.pairFor(factory, tokenA, tokenB);
-    //     uint256 value = approveMax ? uint256(-1) : liquidity;
-    //     IUniswapV2Pair(pair).permit(
-    //         msg.sender,
-    //         address(this),
-    //         value,
-    //         deadline,
-    //         v,
-    //         r,
-    //         s
-    //     );
-    //     (amountA, amountB) = removeLiquidity(
-    //         tokenA,
-    //         tokenB,
-    //         liquidity,
-    //         amountAMin,
-    //         amountBMin,
-    //         to,
-    //         deadline
-    //     );
-    // }
-
-    // function removeLiquidityETHWithPermit(
-    //     address token,
-    //     uint256 liquidity,
-    //     uint256 amountTokenMin,
-    //     uint256 amountETHMin,
-    //     address to,
-    //     uint256 deadline,
-    //     bool approveMax,
-    //     uint8 v,
-    //     bytes32 r,
-    //     bytes32 s
-    // )
-    //     external
-    //     virtual
-    //     override
-    //     returns (uint256 amountToken, uint256 amountETH)
-    // {
-    //     address pair = UniswapV2Library.pairFor(factory, token, WETH);
-    //     uint256 value = approveMax ? uint256(-1) : liquidity;
-    //     IUniswapV2Pair(pair).permit(
-    //         msg.sender,
-    //         address(this),
-    //         value,
-    //         deadline,
-    //         v,
-    //         r,
-    //         s
-    //     );
-    //     (amountToken, amountETH) = removeLiquidityETH(
-    //         token,
-    //         liquidity,
-    //         amountTokenMin,
-    //         amountETHMin,
-    //         to,
-    //         deadline
-    //     );
-    // }
-
-    // **** REMOVE LIQUIDITY (supporting fee-on-transfer tokens) ****
-    // function removeLiquidityETHSupportingFeeOnTransferTokens(
-    //     address token,
-    //     uint256 liquidity,
-    //     uint256 amountTokenMin,
-    //     uint256 amountETHMin,
-    //     address to,
-    //     uint256 deadline
-    // ) public virtual override ensure(deadline) returns (uint256 amountETH) {
-    //     (, amountETH) = removeLiquidity(
-    //         token,
-    //         WETH,
-    //         liquidity,
-    //         amountTokenMin,
-    //         amountETHMin,
-    //         address(this),
-    //         deadline
-    //     );
-    //     TransferHelper.safeTransfer(
-    //         token,
-    //         to,
-    //         IERC20(token).balanceOf(address(this))
-    //     );
-    //     IWETH(WETH).withdraw(amountETH);
-    //     TransferHelper.safeTransferETH(to, amountETH);
-    // }
-
-    // function removeLiquidityETHWithPermitSupportingFeeOnTransferTokens(
-    //     address token,
-    //     uint256 liquidity,
-    //     uint256 amountTokenMin,
-    //     uint256 amountETHMin,
-    //     address to,
-    //     uint256 deadline,
-    //     bool approveMax,
-    //     uint8 v,
-    //     bytes32 r,
-    //     bytes32 s
-    // ) external virtual override returns (uint256 amountETH) {
-    //     address pair = UniswapV2Library.pairFor(factory, token, WETH);
-    //     uint256 value = approveMax ? uint256(-1) : liquidity;
-    //     IUniswapV2Pair(pair).permit(
-    //         msg.sender,
-    //         address(this),
-    //         value,
-    //         deadline,
-    //         v,
-    //         r,
-    //         s
-    //     );
-    //     amountETH = removeLiquidityETHSupportingFeeOnTransferTokens(
-    //         token,
-    //         liquidity,
-    //         amountTokenMin,
-    //         amountETHMin,
-    //         to,
-    //         deadline
-    //     );
-    // }
 
     // **** SWAP ****
     // requires the initial amount to have already been sent to the first pair
@@ -368,7 +176,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         address[] calldata path,
         address to,
         uint256 deadline
-    ) external virtual override returns (uint256[] memory amounts) {
+    ) external virtual override ensure(deadline) returns (uint256[] memory amounts) {
         amounts = UniswapV2Library.getAmountsOut(factory, amountIn, path);
         require(
             amounts[amounts.length - 1] >= amountOutMin,
@@ -389,7 +197,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         address[] calldata path,
         address to,
         uint256 deadline
-    ) external virtual override returns (uint256[] memory amounts) {
+    ) external virtual override ensure(deadline) returns (uint256[] memory amounts) {
         amounts = UniswapV2Library.getAmountsIn(factory, amountOut, path);
         require(
             amounts[0] <= amountInMax,
@@ -409,7 +217,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         address[] calldata path,
         address to,
         uint256 deadline
-    ) external virtual override payable returns (uint256[] memory amounts) {
+    ) external virtual override payable ensure(deadline) returns (uint256[] memory amounts) {
         require(path[0] == WETH, "UniswapV2Router: INVALID_PATH");
         amounts = UniswapV2Library.getAmountsOut(factory, msg.value, path);
         require(
@@ -432,7 +240,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         address[] calldata path,
         address to,
         uint256 deadline
-    ) external virtual override returns (uint256[] memory amounts) {
+    ) external virtual override ensure(deadline) returns (uint256[] memory amounts) {
         require(path[path.length - 1] == WETH, "UniswapV2Router: INVALID_PATH");
         amounts = UniswapV2Library.getAmountsIn(factory, amountOut, path);
         require(
@@ -456,7 +264,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         address[] calldata path,
         address to,
         uint256 deadline
-    ) external virtual override returns (uint256[] memory amounts) {
+    ) external virtual override ensure(deadline) returns (uint256[] memory amounts) {
         require(path[path.length - 1] == WETH, "UniswapV2Router: INVALID_PATH");
         amounts = UniswapV2Library.getAmountsOut(factory, amountIn, path);
         require(
@@ -479,7 +287,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         address[] calldata path,
         address to,
         uint256 deadline
-    ) external virtual override payable returns (uint256[] memory amounts) {
+    ) external virtual override payable  ensure(deadline) returns (uint256[] memory amounts) {
         require(path[0] == WETH, "UniswapV2Router: INVALID_PATH");
         amounts = UniswapV2Library.getAmountsIn(factory, amountOut, path);
         require(
@@ -544,7 +352,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         address[] calldata path,
         address to,
         uint256 deadline
-    ) external virtual override {
+    ) external virtual override ensure(deadline) {
         TransferHelper.safeTransferFrom(
             path[0],
             msg.sender,
@@ -565,7 +373,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         address[] calldata path,
         address to,
         uint256 deadline
-    ) external virtual override payable {
+    ) external virtual override payable ensure(deadline) {
         require(path[0] == WETH, "UniswapV2Router: INVALID_PATH");
         uint256 amountIn = msg.value;
         IWETH(WETH).deposit{value: amountIn}();
@@ -590,7 +398,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         address[] calldata path,
         address to,
         uint256 deadline
-    ) external virtual override {
+    ) external virtual override ensure(deadline) {
         require(path[path.length - 1] == WETH, "UniswapV2Router: INVALID_PATH");
         TransferHelper.safeTransferFrom(
             path[0],

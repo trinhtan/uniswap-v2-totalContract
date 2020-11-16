@@ -42,15 +42,10 @@
     "web3-utils": "^1.0.0-beta.52"
   },
   "scripts": {
-    "lint": "yarn prettier ./test/*.ts --check",
-    "lint:fix": "yarn prettier ./test/*.ts --write",
-    "clean": "rimraf ./build/",
-    "precompile": "yarn clean",
-    "compile": "waffle .waffle.json",
-    "pretest": "yarn compile",
-    "test": "mocha",
-    "prepublishOnly": "yarn test",
-    "migrate": "npx truffle migrate --network ropsten"
+    "migrate": "npx truffle migrate",
+    "getBytecodeHash": "node scripts/getBytecodeHash.js",
+    "createPair": "npx truffle exec scripts/createPair.js",
+    "getPair": "npx truffle exec scripts/getPair.js"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
