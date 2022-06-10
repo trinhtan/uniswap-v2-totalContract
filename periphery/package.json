@@ -15,16 +15,22 @@
         "contracts"
     ],
     "dependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.6",
+        "@nomiclabs/hardhat-waffle": "^2.0.3",
+        "@openzeppelin/contracts": "^4.6.0",
+        "@openzeppelin/test-helpers": "^0.5.15",
         "@truffle/hdwallet-provider": "^1.1.0",
         "@uniswap/lib": "1.1.1",
         "@uniswap/v2-core": "1.0.0",
         "dotenv": "^8.2.0",
+        "ethers": "^5.6.8",
+        "hardhat": "^2.9.9",
         "truffle": "^5.1.46"
     },
     "devDependencies": {
         "@types/chai": "^4.2.6",
         "@types/mocha": "^5.2.7",
-        "chai": "^4.2.0",
+        "chai": "^4.3.6",
         "ethereum-waffle": "^2.4.1",
         "ethereumjs-util": "^6.2.0",
         "mocha": "^6.2.2",
@@ -46,7 +52,9 @@
         "pretest": "yarn compile",
         "test": "mocha",
         "prepublishOnly": "yarn test",
-        "migrate": "npx truffle migrate --network ropsten"
+        "migrate": "npx truffle migrate --network ropsten",
+        "hardhat-compile": "npx hardhat compile",
+        "hardhat-test": "npx hardhat test"
     },
     "license": "GPL-3.0-or-later"
 }
